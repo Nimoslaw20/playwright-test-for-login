@@ -9,7 +9,7 @@ test('Bambai Login Feature', async ({ page }) => {
   await page.getByPlaceholder('Enter your passcode').fill('password123');
   await page.getByRole('button', { name: 'Sign in' }).click();
   if (await page.getByText("Unable to login with credentials").isVisible()) {
-    console.log("Invalid access with login credentials");
+    console.log("Invalid login credentials");
   } else {
     console.log("Valid credentials accepted");
   }
