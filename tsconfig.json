@@ -6,7 +6,11 @@
       "esModuleInterop": true,
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true
-    }
+    },
+    "include": [
+      "src/**/*.ts",
+      ".env"  // Ensure .env is included here
+    ]
   }
   
  
