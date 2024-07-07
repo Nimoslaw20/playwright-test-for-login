@@ -12,7 +12,6 @@
     "@types/node": "^20.12.12"
   },
   "dependencies": {
-    "create-wdio": "^8.4.7",
     "dotenv": "^16.4.5"
   }
 }
