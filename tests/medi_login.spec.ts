@@ -39,5 +39,4 @@ test("Medi Login Feature", async ({ page }) => {
   await page.getByRole("spinbutton").nth(4).fill("1");
   await page.getByText("Patient").click();
   await expect(page.getByText("Home")).toBeVisible();
-  //   await page.getByRole('link', { name: 'Dashboards & Reports' }).click();
 });
