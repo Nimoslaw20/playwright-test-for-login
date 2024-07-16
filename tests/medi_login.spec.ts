@@ -22,6 +22,7 @@ test("Medi Login Feature", async ({ page }) => {
     .filter({ hasText: /^I have read and accept the Privacy Policy$/ })
     .getByLabel("")
     .check();
+  await page.getByLabel('').nth(2).check();
   await page.getByRole("button", { name: "I understand" }).click();
   await page.locator("#email").fill(process.env.EMAIL);
   await page.locator("#password").fill(process.env.PASSWORD);
