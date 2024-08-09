@@ -13,6 +13,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
+    env :
+      SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -39,6 +41,7 @@ jobs:
           path: playwright-report/
           retention-days: 15
 
+    
       - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
