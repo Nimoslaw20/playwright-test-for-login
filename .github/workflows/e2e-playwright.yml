@@ -38,13 +38,19 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 15
-      - name: Notify slack
-        # uses: slackapi/slack-github-action@v1.23.0
-        uses: pullreminders/slack-action@main
-        env:
-          SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
+
+      - uses: act10ns/slack@v2
         with:
-          args: '{\"channel\":\"C04QKFBN45C\",\"text\":\"An alert was generated for plawyright repo"}'
+          status: ${{ job.status }}
+          steps: ${{ toJson (steps)}}
+          channel: '#career-preps'
+        if: always()
+        # uses: slackapi/slack-github-action@v1.23.0
+        # uses: pullreminders/slack-action@main
+        # env:
+        #   SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
+        # with:
+        #   args: '{\"channel\":\"C04QKFBN45C\",\"text\":\"An alert was generated for plawyright repo"}'
 
         
 
