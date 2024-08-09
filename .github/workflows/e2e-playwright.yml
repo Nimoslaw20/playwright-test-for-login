@@ -39,8 +39,14 @@ jobs:
           path: playwright-report/
           retention-days: 15
       - name: Notify slack
-        uses: slackapi/slack-github-action@v1.23.0
+        # uses: slackapi/slack-github-action@v1.23.0
+        uses: pullreminders/slack-action@main
         env:
           SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
-          SLACK_CHANNEL: C04QKFBN45C
-          SLACK_TEXT: "An alert was generated for this repo: webdriverio test"
+        with:
+          args: '{\"channel\":\"C04QKFBN45C\",\"text\":\"An alert was generated for plawyright repo"}'
+
+        
+
+          # SLACK_CHANNEL: C04QKFBN45C
+          # SLACK_TEXT: "An alert was generated for this repo: playwright"
